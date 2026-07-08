@@ -1,0 +1,1037 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-color: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  
+  /* YONO SBI & Bank of India Hybrid Premium Fintech Palette */
+  --primary-color: #4b0082; /* Deep Indigo / Royal Violet */
+  --secondary-color: #f15a24; /* Warm Orange Accent */
+  --accent-color: #00b074; /* Emerald Green */
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  
+  --sidebar-bg: linear-gradient(180deg, #1c0533 0%, #0c0217 100%); /* Deep Yono Indigo Gradient */
+  --sidebar-text: #cbd5e1;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-text: #0f172a;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 25px -5px rgba(75, 0, 130, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --btn-shadow: 0 4px 12px 0 rgba(75, 0, 130, 0.15);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+.theme-dark {
+  --bg-color: #09080e;
+  --card-bg: #13111c;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #231f32;
+  
+  --primary-color: #a78bfa; /* Lighter violet for dark mode */
+  --secondary-color: #fb923c;
+  --accent-color: #34d399;
+  
+  --sidebar-bg: linear-gradient(180deg, #0c0617 0%, #040209 100%);
+  --sidebar-text: #94a3b8;
+  --sidebar-hover-bg: rgba(167, 139, 250, 0.08);
+  --header-bg: rgba(19, 17, 28, 0.85);
+  --header-text: #f8fafc;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --btn-shadow: 0 4px 12px 0 rgba(167, 139, 250, 0.2);
+}
+
+/* Global Font & Smooth Transitions */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Layout Overrides */
+.content-wrapper {
+  background-color: var(--bg-color) !important;
+}
+
+/* Navbar Custom Styling */
+.main-header {
+  background-color: var(--header-bg) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  padding: 10px 15px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+.main-header .nav-link {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.main-header .nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+.main-footer {
+  background-color: var(--card-bg) !important;
+  border-top: 1px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  padding: 1.25rem 1.5rem !important;
+  font-size: 0.9rem;
+}
+
+/* Sidebar Custom Styling (YONO Glassmorphism Style) */
+.main-sidebar {
+  background: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--border-color) !important;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05) !important;
+  transition: width 0.3s ease !important;
+}
+
+.brand-link {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.25rem !important;
+  padding: 20px 15px !important;
+  letter-spacing: -0.5px;
+}
+
+/* Sidebar Profile Card Container */
+.user-panel {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 15px 12px !important;
+  margin: 15px 10px !important;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(5px);
+}
+
+.user-panel .image img {
+  border: 2px solid var(--secondary-color) !important;
+  object-fit: cover;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.user-panel .info a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem;
+}
+
+.user-panel .info .text-muted {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: block;
+}
+
+/* Sidebar List Styling & Animations */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #d03e10 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(241, 90, 36, 0.3) !important;
+  font-weight: 700;
+}
+
+.nav-sidebar .nav-link {
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.35rem;
+  color: var(--sidebar-text) !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-left: 3px solid transparent;
+}
+
+.nav-sidebar .nav-link:hover {
+  background-color: var(--sidebar-hover-bg) !important;
+  color: #ffffff !important;
+  transform: translateX(5px);
+  border-left-color: var(--secondary-color);
+}
+
+.nav-sidebar .nav-link:hover .nav-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.nav-sidebar .nav-icon {
+  margin-right: 0.6rem !important;
+  font-size: 1.15rem !important;
+  transition: transform 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-header {
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 1.5rem 0 0.5rem 1rem !important;
+}
+
+/* Cards styling */
+.card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--card-shadow) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+.card-header {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 1rem 1.25rem !important;
+  font-weight: 700;
+}
+
+.card-title {
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  color: var(--text-color) !important;
+}
+
+.card-body {
+  padding: 1.25rem !important;
+}
+
+/* Info Boxes and Widgets */
+.info-box {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 1rem !important;
+  margin-bottom: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+.info-box-icon {
+  border-radius: var(--radius-sm) !important;
+  width: 50px !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 1.3rem !important;
+}
+
+.info-box-content {
+  padding-left: 0.75rem;
+}
+
+.info-box-text {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.info-box-number {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+.small-box {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  box-shadow: var(--card-shadow) !important;
+}
+
+/* Info-box Color Overrides (Premium Gradients) */
+.info-box-icon.bg-info {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+}
+.info-box-icon.bg-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
+}
+.info-box-icon.bg-success {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+  color: #ffffff !important;
+}
+.info-box-icon.bg-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%) !important;
+  color: #ffffff !important;
+}
+.info-box-icon.bg-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
+  color: #ffffff !important;
+}
+
+/* Translucent Soft Badges */
+.badge {
+  padding: 0.35em 0.65em !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: 80% !important;
+}
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+.badge-danger {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+.badge-warning {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #d97706 !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+.badge-info {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  color: #3b82f6 !important;
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Forms & Inputs */
+.form-control, .custom-select {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 0.55rem 0.85rem !important;
+  font-size: 0.9rem !important;
+  height: auto !important;
+}
+
+.form-control:focus, .custom-select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.12) !important;
+}
+
+.input-group-text {
+  background-color: var(--bg-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+  font-size: 0.9rem !important;
+}
+
+/* Tables spacing and outline */
+.table {
+  color: var(--text-color) !important;
+  font-size: 0.9rem;
+}
+
+.table th {
+  border-top: none !important;
+  border-bottom: 2px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.85rem 0.75rem !important;
+}
+
+.table td {
+  border-top: 1px solid var(--border-color) !important;
+  padding: 0.85rem 0.75rem !important;
+  vertical-align: middle !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.015) !important;
+}
+.theme-dark .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.015) !important;
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--radius-sm) !important;
+  padding: 0.5rem 1.1rem !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  box-shadow: var(--btn-shadow);
+}
+.btn-primary:hover {
+  filter: brightness(1.15);
+}
+
+.btn-success {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #ffffff !important;
+}
+
+.btn-danger {
+  background-color: var(--danger-color) !important;
+  border-color: var(--danger-color) !important;
+  color: #ffffff !important;
+}
+
+/* Navbar Notification Dropdown Modernization */
+.dropdown-menu-lg {
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  border: 1px solid var(--border-color) !important;
+  background-color: var(--card-bg) !important;
+  overflow: hidden;
+  padding: 0 !important;
+}
+.theme-dark .dropdown-menu-lg {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+
+.dropdown-item {
+  color: var(--text-color) !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--card-bg) !important;
+}
+.dropdown-item:hover {
+  background-color: var(--bg-color) !important;
+}
+
+.dropdown-item-title {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px;
+}
+
+/* Floating Switcher */
+.theme-toggle-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-floating:hover {
+  transform: scale(1.08);
+}
+
+.theme-toggle-floating i {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   Split Screen Modern Login / Registration Styles
+   ========================================================================== */
+.split-login-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+/* Visual Panel (Left Panel) */
+.login-visual-panel {
+  flex: 1.2;
+  background: linear-gradient(135deg, #1c0533 0%, #090312 100%);
+  color: #ffffff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-visual-panel::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(241, 90, 36, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-visual-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-visual-logo img {
+  height: 45px;
+  width: auto;
+}
+
+.login-visual-logo span {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-visual-graphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+  z-index: 5;
+}
+
+/* Dynamic Shield Vector Icon Graphic */
+.shield-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.shield-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rotate-ring 25s linear infinite;
+}
+
+.shield-ring-2 {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 1px solid rgba(241, 90, 36, 0.25);
+  border-radius: 50%;
+  animation: rotate-ring-reverse 15s linear infinite;
+}
+
+.shield-core {
+  width: 80px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #d03e10 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(241, 90, 36, 0.4);
+  animation: float-core 4s ease-in-out infinite;
+}
+
+.shield-core i {
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.login-visual-text {
+  text-align: center;
+  max-width: 440px;
+}
+
+.login-visual-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  color: #ffffff !important;
+}
+
+.login-visual-text p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.login-visual-footer {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Form Panel (Right Panel) */
+.login-form-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: var(--bg-color);
+}
+
+.login-form-box {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form-header {
+  margin-bottom: 30px;
+}
+
+.login-form-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-color) !important;
+  margin-bottom: 8px;
+}
+
+.login-form-header p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* Split Form Inputs & Cards Overrides */
+.split-login-card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 30px 24px !important;
+  margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   YONO SBI Modern Bank Components
+   ========================================================================== */
+
+/* Premium Yono Debit Card Widget */
+.yono-card-wrapper {
+  margin-bottom: 30px;
+}
+
+.yono-card {
+  background: linear-gradient(135deg, #1c0533 0%, #3a0075 50%, #4b0082 100%);
+  border-radius: var(--radius-lg);
+  padding: 25px;
+  color: #ffffff;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(28, 5, 51, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.yono-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(241, 90, 36, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.yono-card-chip {
+  width: 42px;
+  height: 32px;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  border-radius: 4px;
+}
+
+.yono-card-number {
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-top: 15px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.yono-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.yono-card-logo {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Yono Quick Action Circular Grid */
+.yono-actions-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  letter-spacing: -0.3px;
+}
+
+.yono-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 10px;
+  margin-bottom: 25px;
+}
+
+.yono-action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none !important;
+  transition: transform 0.2s ease;
+}
+
+.yono-action-item:hover {
+  transform: translateY(-4px);
+}
+
+.yono-action-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.yono-action-item:hover .yono-action-circle {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #3a0075 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(75, 0, 130, 0.25);
+  border-color: transparent;
+}
+
+.yono-action-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Yono Balance Area with toggle */
+.yono-balance-card {
+  padding: 24px !important;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 30px;
+}
+
+.yono-bal-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.yono-bal-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.yono-bal-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 1.15rem;
+  padding: 0;
+  outline: none !important;
+}
+
+/* Animations */
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-ring-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float-core {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+  .login-visual-panel {
+    display: none !important;
+  }
+  .login-form-panel {
+    padding: 30px 20px;
+  }
+}
+
+/* ==========================================================================
+   Neo-Glassmorphic FinTech Dashboard Styles
+   ========================================================================== */
+
+/* Glassmorphism utility card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(75, 0, 130, 0.05) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.theme-dark .glass-card {
+  background: rgba(19, 17, 28, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 15px 35px rgba(75, 0, 130, 0.1) !important;
+  border-color: rgba(241, 90, 36, 0.3) !important;
+}
+
+.theme-dark .glass-card:hover {
+  box-shadow: 0 15px 40px rgba(167, 139, 250, 0.1) !important;
+  border-color: rgba(167, 139, 250, 0.2) !important;
+}
+
+/* Glassmorphic Yono Balance Card */
+.yono-balance-card {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(75, 0, 130, 0.05) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.3s ease !important;
+}
+.theme-dark .yono-balance-card {
+  background: rgba(19, 17, 28, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 3D Tilt Effect and Dynamic Custom Skins for Debit Card */
+.yono-card-wrapper {
+  perspective: 1000px;
+}
+
+.yono-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, box-shadow 0.3s ease !important;
+  cursor: pointer;
+}
+
+.yono-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(75, 0, 130, 0.3) !important;
+}
+
+.theme-dark .yono-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(167, 139, 250, 0.25) !important;
+}
+
+/* Gold Skin */
+.yono-card.card-gold {
+  background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%) !important;
+  color: #1a1508 !important;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+  box-shadow: 0 15px 35px rgba(187, 137, 40, 0.25) !important;
+}
+.yono-card.card-gold .yono-card-logo, 
+.yono-card.card-gold .yono-card-number, 
+.yono-card.card-gold .font-weight-bold {
+  color: #1a1508 !important;
+  -webkit-text-fill-color: #1a1508 !important;
+}
+
+/* Cyberpunk Neon Skin */
+.yono-card.card-cyber {
+  background: linear-gradient(135deg, #ff007f 0%, #7f00ff 50%, #00f0ff 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 15px 35px rgba(255, 0, 127, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Premium Carbon/Titanium Skin */
+.yono-card.card-titanium {
+  background: linear-gradient(135deg, #141419 0%, #2c2d30 50%, #1c1c1f 100%) !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Financial Goals Tracker UI */
+.goal-item {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+}
+
+.theme-dark .goal-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.goal-item:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.theme-dark .goal-item:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.goal-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.goal-progress-wrapper {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.theme-dark .goal-progress-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.goal-progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease-in-out;
+}
+
+/* Card Skin Selector */
+.card-skin-selector {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skin-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.skin-dot:hover, .skin-dot.active {
+  transform: scale(1.15);
+}
+
+.skin-dot.dot-default {
+  background: linear-gradient(135deg, #1c0533 0%, #4b0082 100%);
+  border-color: var(--border-color);
+}
+.skin-dot.dot-gold {
+  background: linear-gradient(135deg, #bf953f 0%, #aa771c 100%);
+  border-color: #ffd700;
+}
+.skin-dot.dot-cyber {
+  background: linear-gradient(135deg, #ff007f 0%, #00f0ff 100%);
+  border-color: #ff007f;
+}
+.skin-dot.dot-titanium {
+  background: linear-gradient(135deg, #141419 0%, #2c2d30 100%);
+  border-color: #718096;
+}
+
+/* Glassmorphic Tables updates */
+.theme-dark .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
